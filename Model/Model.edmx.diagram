@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e89dbfbd114c4ea58c8948e0bd1550f6" Name="Diagram1">
+        <EntityTypeShape EntityType="DatabaseModel.Cart" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.MsBrand" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.MsCategory" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.MsJewel" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.MsUser" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.TransactionDetail" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.TransactionHeader" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
+        <AssociationConnector Association="DatabaseModel.FK__Cart__JewelID__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK__Cart__UserID__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK__MsJewel__BrandID__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK__MsJewel__Categor__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK__Transacti__Jewel__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK__Transacti__UserI__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK__Transacti__Trans__440B1D61" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
