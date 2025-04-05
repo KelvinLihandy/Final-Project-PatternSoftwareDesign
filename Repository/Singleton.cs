@@ -9,9 +9,9 @@ namespace FinalProjectPSD.Repository
 {
     public class Singleton
     {
-        private DatabaseJewel db;
+        private static DatabaseJewel db;
 
-        public DatabaseJewel GetDatabase()
+        public static DatabaseJewel GetDatabase()
         {
             if (db == null)
             {
