@@ -1,0 +1,31 @@
+# Ignore SQL Server database files
+*.mdf
+*.ldf
+
+# Visual Studio specific
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Bb]in/
+[Oo]bj/
+*.log
+*.tlog
+*.cache
+*.pdb
+
+# NuGet packages
+*.nupkg
+packages/
+*.snupkg
+
+# Other files
+*.dbmdl
+*.vsp
+*.psess
+*.vspx
+*.vspscc
+*.vssscc

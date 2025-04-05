@@ -1,0 +1,56 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Navbar.master.cs" Inherits="FinalProjectPSD.View.Navbar" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+</head>
+<body style="padding: 0; margin: 0; overflow-x: hidden;">
+    <form id="form1" runat="server">
+
+        <% if (Session["admin"] != null)
+            { %>
+        <div style="position: fixed; top: 0; left: 0; right: 0; height: 7vh; width: 100%; z-index: 50; display: flex; flex-direction: row; justify-content: space-between; align-items: center; padding: 1vh 2vw; box-sizing: border-box;">
+            <asp:Label ID="UsernameLabel2" runat="server" Text="Hello, [admin]" Font-Size="X-Large" Font-Bold="true"></asp:Label>
+            <div style="display: flex; flex-direction: row; gap: 2vw;">
+                <asp:Button ID="HomePage3" runat="server" Text="Home" OnClick="HomePage_Click" Height="40px" Width="120px" Font-Size="Medium" />
+                <asp:Button ID="AddJewelPage" runat="server" Text="Add Jewel" OnClick="AddJewelPage_Click" Height="40px" Width="120px" Font-Size="Medium" />
+                <asp:Button ID="ReportPage" runat="server" Text="Reports" OnClick="ReportPage_Click" Height="40px" Width="120px" Font-Size="Medium" />
+                <asp:Button ID="HandleOrderPage" runat="server" Text="Handle Order" OnClick="HandleOrderPage_Click" Height="40px" Width="120px" Font-Size="Medium" />
+                <asp:Button ID="ProfilePage2" runat="server" Text="Profile" OnClick="ProfilePage_Click" Height="40px" Width="120px" Font-Size="Medium" />
+                <asp:Button ID="Logout2" runat="server" Text="Logout" OnClick="Logout_Click" Height="40px" Width="120px" Font-Size="Medium" />
+            </div>
+        </div>
+        <% } %>
+        <% else if (Session["customer"] != null)
+            { %>
+        <div style="position: fixed; top: 0; left: 0; right: 0; height: 7vh; width: 100%; z-index: 50; display: flex; flex-direction: row; justify-content: space-between; align-items: center; padding: 1vh 2vw; box-sizing: border-box;">
+            <asp:Label ID="UsernameLabel1" runat="server" Text="Hello, [customer]" Font-Size="X-Large" Font-Bold="true"></asp:Label>
+            <div style="display: flex; flex-direction: row; gap: 2vw;">
+                <asp:Button ID="HomePage2" runat="server" Text="Home" OnClick="HomePage_Click" Height="40px" Width="120px" Font-Size="Medium" />
+                <asp:Button ID="CartPage" runat="server" Text="Cart" OnClick="CartPage_Click" Height="40px" Width="120px" Font-Size="Medium" />
+                <asp:Button ID="MyOrderPage" runat="server" Text="My Order" OnClick="MyOrderPage_Click" Height="40px" Width="120px" Font-Size="Medium" />
+                <asp:Button ID="ProfilePage1" runat="server" Text="Profile" OnClick="ProfilePage_Click" Height="40px" Width="120px" Font-Size="Medium" />
+                <asp:Button ID="Logout1" runat="server" Text="Logout" OnClick="Logout_Click" Height="40px" Width="120px" Font-Size="Medium" />
+            </div>
+        </div>
+        <% } %>
+        <% else
+            { %>
+        <div style="position: fixed; top: 0; left: 0; right: 0; height: 7vh; width: 100%; z-index: 50; display: flex; flex-direction: row; justify-content: space-between; align-items: center; padding: 1vh 2vw; box-sizing: border-box;">
+            <asp:Label ID="Label1" runat="server" Text="Welcome To JAwels & Diamonds" Font-Size="X-Large" Font-Bold="true"></asp:Label>
+            <div style="display: flex; flex-direction: row; gap: 2vw;">
+                <asp:Button ID="HomePage1" runat="server" Text="Home" OnClick="HomePage_Click" Height="40px" Width="120px" Font-Size="Medium" />
+                <asp:Button ID="Loginpage" runat="server" Text="Login" OnClick="Loginpage_Click" Height="40px" Width="120px" Font-Size="Medium" />
+                <asp:Button ID="RegisterPage" runat="server" Text="Register" OnClick="RegisterPage_Click" Height="40px" Width="120px" Font-Size="Medium" />
+            </div>
+        </div>
+        <% } %>
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
