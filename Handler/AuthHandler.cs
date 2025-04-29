@@ -10,10 +10,10 @@ namespace FinalProjectPSD.Handler
 {
 	public class AuthHandler
 	{
-		public static void InsertUser(string email, string username, string password, string gender, string dob)
+		public static bool InsertUser(string email, string username, string password, string gender, string dob)
 		{
 			MsUser newUser = FactoryClass.CreateUser(username, password, email, DateTime.Parse(dob), gender);
-            MsUserRepository.PostNewUser(newUser);
+            return MsUserRepository.PostNewUser(newUser);
         }
 
 

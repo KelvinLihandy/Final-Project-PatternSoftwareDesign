@@ -19,18 +19,16 @@ namespace FinalProjectPSD.View
             string password = TextBoxPassword.Text;
             bool remember = rememberMe.Checked;
 
-            EmailError.Visible = LoginController.ValidateEmail(email);
-            PasswordError.Visible = LoginController.ValidatePassword(password);
+            EmailError.Text = LoginController.ValidateEmail(email);
+            PasswordError.Text = LoginController.ValidatePassword(password);
 
-            if (EmailError.Visible == true || PasswordError.Visible == true)
-            {
-                return;
-            }
+            if (!string.IsNullOrEmpty(EmailError.Text) ||
+                !string.IsNullOrEmpty(PasswordError.Text)) return;
 
             MsUser user = MsUserRepository.GetUser(email, password);
             if (remember)
             {
-                HttpCookie cookie = new HttpCookie("user_cookie")//user mana yang login
+                HttpCookie cookie = new HttpCookie($"{user.UserRole}_cookie")//user mana yang login
                 {
                     HttpOnly = true,
                     Secure = true,

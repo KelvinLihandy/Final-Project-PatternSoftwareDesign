@@ -69,3 +69,24 @@ CREATE TABLE [dbo].[TransactionDetail] (
     FOREIGN KEY ([JewelID]) REFERENCES [dbo].[MsJewel] ([JewelID]),
     FOREIGN KEY ([TransactionID]) REFERENCES [dbo].[TransactionHeader] ([TransactionID])
 );
+
+INSERT INTO [dbo].[MsCategory] (CategoryName)
+VALUES
+    ('Rings'),
+    ('Necklaces'),
+    ('Earrings'),
+    ('Bracelets'),
+    ('Brooches');
+
+INSERT INTO [dbo].[MsBrand] (BrandName, BrandCountry, BrandClass)
+VALUES
+    ('Aurora Jewels', 'Italy', 'Luxury'),
+    ('Celestial Gems', 'USA', 'Premium'),
+    ('RoyalSpark', 'United Kingdom', 'Luxury'),
+    ('GoldenGlint', 'India', 'Classic'),
+    ('OceanMist Jewelry', 'Australia', 'Modern'),
+    ('ShimmerStone', 'Canada', 'Premium'),
+    ('Twilight Treasures', 'France', 'Luxury'),
+    ('Moonlight Gems', 'Japan', 'Modern'),
+    ('EmeraldElegance', 'Brazil', 'Classic'),
+    ('Sapphire Crown', 'Switzerland', 'Luxury');
