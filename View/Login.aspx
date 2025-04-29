@@ -6,13 +6,13 @@
         <div style="display:flex; flex-direction:column; font-size: 24px; min-width: 33vw; max-width: 33vw;">
             <asp:Label ID="LabelEmail" runat="server" Text="Email"></asp:Label>
             <asp:TextBox ID="TextBoxEmail" runat="server" Height="20px" Font-Size="Medium" ></asp:TextBox>
-            <asp:Label ID="EmailError" runat="server" Text="Email does not exist!" ForeColor="Red" Visible="false" Font-Size="18px"></asp:Label>
+            <asp:Label ID="EmailError" runat="server" Text="" ForeColor="Red" Visible="true" Font-Size="18px"></asp:Label>
         </div>
 
         <div style="display:flex; flex-direction:column; font-size: 24px; min-width: 33vw; max-width: 33vw;">
             <asp:Label ID="LabelPassword" runat="server" Text="Password"></asp:Label>
             <asp:TextBox ID="TextBoxPassword" runat="server" Height="20px" Font-Size="Medium" ></asp:TextBox>
-            <asp:Label ID="PasswordError" runat="server" Text="Incorrect password!" ForeColor="Red" Visible="false" Font-Size="18px"></asp:Label>
+            <asp:Label ID="PasswordError" runat="server" Text="" ForeColor="Red" Visible="true" Font-Size="18px"></asp:Label>
         </div>
         <div style="font-size: 24px; min-width: 33vw; max-width: 33vw;">
             <asp:CheckBox ID="rememberMe" runat="server" Text="Remember Me" Font-Size="Large" Height="20px" />

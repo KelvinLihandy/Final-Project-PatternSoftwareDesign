@@ -8,13 +8,13 @@ namespace FinalProjectPSD.Factory
 {
     public class FactoryClass
     {
-        public static MsJewel CreateJewel(int brandId, int categoryId, string name, int price, int releaseYear)
+        public static MsJewel CreateJewel(string name, int brandId, int categoryId, int price, int releaseYear)
         {
             MsJewel newJewel = new MsJewel
             {
+                JewelName = name,
                 BrandID = brandId,
                 CategoryID = categoryId,
-                JewelName = name,
                 JewelPrice = price,
                 JewelReleaseYear = releaseYear
             };

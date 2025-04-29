@@ -20,19 +20,19 @@ namespace FinalProjectPSD.View
             string gender = RadioButtonGender.SelectedItem != null ? RadioButtonGender.SelectedValue : "";
             string dob = TextBoxDate.Text;
 
-            EmailError.Visible = RegisterController.ValidateEmail(email);
-            UsernameError.Visible = RegisterController.ValidateUserName(name);
-            PasswordError.Visible = RegisterController.ValidatePassword(password);
-            ConfirmError.Visible = RegisterController.ValidateConfirm(password, confirm);
-            GenderError.Visible = RegisterController.ValidateGender(gender);
-            DateError.Visible = RegisterController.ValidateDob(dob);
+            EmailError.Text = RegisterController.ValidateEmail(email);
+            UsernameError.Text = RegisterController.ValidateUserName(name);
+            PasswordError.Text = RegisterController.ValidatePassword(password);
+            ConfirmError.Text = RegisterController.ValidateConfirm(password, confirm);
+            GenderError.Text = RegisterController.ValidateGender(gender);
+            DateError.Text = RegisterController.ValidateDob(dob);
 
-            if (EmailError.Visible == true || UsernameError.Visible == true ||
-                PasswordError.Visible == true || ConfirmError.Visible == true ||
-                GenderError.Visible == true || DateError.Visible == true)
-            {
-                return;
-            }
+            if (!string.IsNullOrEmpty(EmailError.Text) ||
+                !string.IsNullOrEmpty(UsernameError.Text) ||
+                !string.IsNullOrEmpty(PasswordError.Text) ||
+                !string.IsNullOrEmpty(ConfirmError.Text) ||
+                !string.IsNullOrEmpty(GenderError.Text) ||
+                !string.IsNullOrEmpty(DateError.Text)) return;
 
             AuthHandler.InsertUser(email, name, password, gender, dob);
             Response.Redirect("~/View/Login.aspx");

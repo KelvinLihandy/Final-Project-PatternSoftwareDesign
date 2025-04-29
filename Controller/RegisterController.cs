@@ -8,37 +8,49 @@ using System.Xml.Linq;
 
 namespace FinalProjectPSD.Controller
 {
-	public class RegisterController
-	{
-		public static bool ValidateEmail(string email)
-		{
-            const string emailPattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
-			return (string.IsNullOrWhiteSpace(email) || Regex.IsMatch(email, emailPattern) == false || MsUserRepository.GetUserByEmail(email) != null);
-        }
-		public static bool ValidateUserName(string username)
+    public class RegisterController
+    {
+        public static string ValidateEmail(string email)
         {
-            return (string.IsNullOrWhiteSpace(username) || username.Length < 3 || username.Length > 25);
-
+            const string emailPattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+            if (string.IsNullOrWhiteSpace(email)) return "Email is required.";
+            else if (!Regex.IsMatch(email, emailPattern)) return "Email format is invalid.";
+            else if (MsUserRepository.GetUserByEmail(email) != null) return "Email is already in use.";
+            return "";
         }
-        public static bool ValidatePassword(string password)
+        public static string ValidateUserName(string username)
+        {
+            if (string.IsNullOrWhiteSpace(username)) return "Username is required";
+            else if (username.Length < 3 || username.Length > 25) return "Username must be between 3 to 25 characters (inclusive)";
+            return "";
+        }
+        public static string ValidatePassword(string password)
         {
             const string passPattern = @"^[a-zA-Z0-9]+$";
-            return (string.IsNullOrWhiteSpace(password) || password.Length < 8 || password.Length > 20 || Regex.IsMatch(password, passPattern) == false);
+            if (string.IsNullOrWhiteSpace(password)) return "Password is required";
+            else if (Regex.IsMatch(password, passPattern) == false) return "Password must be alphanumeric";
+            else if (password.Length < 8 || password.Length > 20) return "Password must be 8 to 20 characters inclusive";
+            return "";
         }
-        public static bool ValidateConfirm(string password, string confirm)
+        public static string ValidateConfirm(string password, string confirm)
         {
-            return (string.IsNullOrWhiteSpace(confirm) || String.Equals(password, confirm) == false);
+            if (string.IsNullOrWhiteSpace(confirm)) return "Confirmation password is required";
+            else if (String.Equals(password, confirm) == false) return "Confirmation password must be the same as password";
+            return "";
         }
-        public static bool ValidateGender(string gender)
+        public static string ValidateGender(string gender)
         {
-            return (string.IsNullOrEmpty(gender) || !(gender.Equals("male") || gender.Equals("female")));
+            if (string.IsNullOrWhiteSpace(gender)) return "Gender is required";
+            else if (!(gender.Equals("male") || gender.Equals("female"))) return "Must be chosen using radio button and must be Male or Female";
+            return "";
         }
-        public static bool ValidateDob(string dob)
+        public static string ValidateDob(string dob)
         {
             DateTime minDate = new DateTime(2010, 1, 1);
             DateTime dobConv;
-            return (string.IsNullOrEmpty(dob) || !DateTime.TryParse(dob, out dobConv) || dobConv >= minDate);
-
+            if (string.IsNullOrEmpty(dob)) return "DOB is required and must be chosen using date picker";
+            else if (!DateTime.TryParse(dob, out dobConv) || dobConv >= minDate) return "DOB must be earlier than 01/01/2010";
+            return "";
         }
     }
 }

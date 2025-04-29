@@ -12,14 +12,16 @@ namespace FinalProjectPSD.Controller
 	public class LoginController
 	{
         private static MsUser user;
-        public static bool ValidateEmail(string email)
+        public static string ValidateEmail(string email)
         {
             user = MsUserRepository.GetUserByEmail(email);
-            return (string.IsNullOrWhiteSpace(email) || (user  == null));
+            return (string.IsNullOrWhiteSpace(email) || 
+                (user  == null)) ? "Email does not exist!" : "";
         }
-        public static bool ValidatePassword(string password)
+        public static string ValidatePassword(string password)
         {
-            return (string.IsNullOrWhiteSpace(password) || password.Equals(user.UserPassword) == false);
+            return (string.IsNullOrWhiteSpace(password) || 
+                password.Equals(user.UserPassword) == false) ? "Incorrect password!" : "";
         }
     }
 }

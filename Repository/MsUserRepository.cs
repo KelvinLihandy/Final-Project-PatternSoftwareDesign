@@ -10,10 +10,10 @@ namespace FinalProjectPSD.Repository
 	{
 		private static DatabaseJewel db = Singleton.GetDatabase();
 
-		public static void PostNewUser(MsUser newUser)
+		public static bool PostNewUser(MsUser newUser)
 		{
 			db.MsUsers.Add(newUser);
-			db.SaveChanges();
+			return db.SaveChanges() > 0;
 		}
 		
 		public static MsUser GetUserByEmail(string email)

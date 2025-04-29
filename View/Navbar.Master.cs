@@ -51,7 +51,7 @@ namespace FinalProjectPSD.View
 
         protected void AddJewelPage_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("~/View/AddJewel.aspx");
         }
 
         protected void ReportPage_Click(object sender, EventArgs e)

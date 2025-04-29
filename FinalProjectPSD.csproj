@@ -89,15 +89,18 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
+    <Content Include="View\AddJewel.aspx" />
     <Content Include="View\Home.aspx" />
     <Content Include="View\Login.aspx" />
     <Content Include="View\Register.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\JewelController.cs" />
     <Compile Include="Controller\LoginController.cs" />
     <Compile Include="Controller\RegisterController.cs" />
     <Compile Include="Factory\FactoryClass.cs" />
+    <Compile Include="Handler\JewelHandler.cs" />
     <Compile Include="Handler\AuthHandler.cs" />
     <Compile Include="Model\Cart.cs">
       <DependentUpon>Model.tt</DependentUpon>
@@ -136,8 +139,18 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\MsCategoryRepository.cs" />
+    <Compile Include="Repository\MsBrandRepository.cs" />
+    <Compile Include="Repository\MsJewelRepository.cs" />
     <Compile Include="Repository\Singleton.cs" />
     <Compile Include="Repository\MsUserRepository.cs" />
+    <Compile Include="View\AddJewel.aspx.cs">
+      <DependentUpon>AddJewel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\AddJewel.aspx.designer.cs">
+      <DependentUpon>AddJewel.aspx</DependentUpon>
+    </Compile>
     <Compile Include="View\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
