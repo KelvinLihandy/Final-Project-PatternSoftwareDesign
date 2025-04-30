@@ -1,6 +1,7 @@
 ﻿using FinalProjectPSD.Controller;
 using FinalProjectPSD.Handler;
 using System;
+using System.Drawing;
 
 namespace FinalProjectPSD.View
 {
@@ -34,8 +35,22 @@ namespace FinalProjectPSD.View
                 !string.IsNullOrEmpty(GenderError.Text) ||
                 !string.IsNullOrEmpty(DateError.Text)) return;
 
-            AuthHandler.InsertUser(email, name, password, gender, dob);
-            Response.Redirect("~/View/Login.aspx");
+            if (AuthHandler.InsertUser(
+                email.Trim(),
+                name.Trim(),
+                password.Trim(),
+                gender,
+                dob
+            ))
+            {
+                LabelResult.Text = "Success Register";
+                Response.Redirect("~/View/Login.aspx");
+            }
+            else
+            {
+                LabelResult.ForeColor = Color.Red;
+                LabelResult.Text = "Failed Register";
+            }
             return;
         }
     }

@@ -42,6 +42,6 @@
         <asp:Button ID="ButtonCancel" runat="server" Text="Cancel" OnClick="ButtonCancel_Click" Width="200px" Height="50px" Font-Size="Large" />
         <asp:Button ID="ButtonAdd" runat="server" Text="Add Jewel" OnClick="ButtonAdd_Click" Width="200px" Height="50px" Font-Size="Large" />
     </div>
-    <asp:Label ID="LabelResult" runat="server" Text="Success Add" Visible="false" Font-Size="30px"></asp:Label>
+    <asp:Label ID="LabelResult" runat="server" Text="" Visible="true" Font-Size="30px"></asp:Label>
 </div>
 </asp:Content>

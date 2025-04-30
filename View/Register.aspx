@@ -46,6 +46,7 @@
         <div style="display: flex; justify-content: center; width: 100%; font-size: 24px; padding-top: 2vh;">
             <asp:Button ID="ButtonRegister" runat="server" Text="Register" OnClick="ButtonRegister_Click" Width="200px" Height="50px" Font-Size="Large" />
         </div>
+        <asp:Label ID="LabelResult" runat="server" Text="" Visible="true" Font-Size="30px"></asp:Label>
     </div>
     <script type="text/javascript">
         document.getElementById('<%= TextBoxDate.ClientID %>').addEventListener('keydown', function (event) {

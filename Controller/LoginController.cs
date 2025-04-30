@@ -14,14 +14,20 @@ namespace FinalProjectPSD.Controller
         private static MsUser user;
         public static string ValidateEmail(string email)
         {
-            user = MsUserRepository.GetUserByEmail(email);
-            return (string.IsNullOrWhiteSpace(email) || 
-                (user  == null)) ? "Email does not exist!" : "";
+            if (string.IsNullOrWhiteSpace(email)) return "Email is required";
+            else
+            {
+                user = MsUserRepository.GetUserByEmail(email);
+                if (user == null) return "Email does not exist";
+            }
+            return "";
+            
         }
         public static string ValidatePassword(string password)
         {
-            return (string.IsNullOrWhiteSpace(password) || 
-                password.Equals(user.UserPassword) == false) ? "Incorrect password!" : "";
+            if (string.IsNullOrWhiteSpace(password)) return "Password is required";
+            else if (password.Equals(user.UserPassword) == false) return "Incorrect password";
+            return "";
         }
     }
 }
