@@ -4,6 +4,7 @@ using FinalProjectPSD.Model;
 using FinalProjectPSD.Repository;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -61,12 +62,18 @@ namespace FinalProjectPSD.View
                 !string.IsNullOrEmpty(PriceError.Text) ||
                 !string.IsNullOrEmpty(YearError.Text)) return;
             if(JewelHandler.InsertJewel(
-                name,
+                name.Trim(),
                 int.Parse(DropdownBrand.SelectedValue),
                 int.Parse(DropdownCategory.SelectedValue),
                 (int)priceObj[1],
                 (int)yearObj[1]
-             )) LabelResult.Visible = true;
+             )) LabelResult.Text = "Success Add";
+            else
+            {
+                LabelResult.ForeColor = Color.Red;
+                LabelResult.Text = "Failed Add";
+            }
+            return;
         }
     }
 }

@@ -48,7 +48,7 @@ namespace FinalProjectPSD.Controller
         {
             DateTime minDate = new DateTime(2010, 1, 1);
             DateTime dobConv;
-            if (string.IsNullOrEmpty(dob)) return "DOB is required and must be chosen using date picker";
+            if (string.IsNullOrWhiteSpace(dob)) return "DOB is required and must be chosen using date picker";
             else if (!DateTime.TryParse(dob, out dobConv) || dobConv >= minDate) return "DOB must be earlier than 01/01/2010";
             return "";
         }
