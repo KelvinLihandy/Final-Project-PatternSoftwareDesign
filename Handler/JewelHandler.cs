@@ -1,43 +1,62 @@
-﻿using FinalProjectPSD.Factory;
-using FinalProjectPSD.Model;
-using FinalProjectPSD.Repository;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Web;
+using FinalProjectPSD.Repository;
+using FinalProjectPSD.Model;
 
 namespace FinalProjectPSD.Handler
 {
     public class JewelHandler
     {
+        private MsJewelRepository jewelRepo;
 
-        public static bool InsertJewel(string name, int categoryId, int brandId, int price, int year)
+        public JewelHandler()
         {
-            MsJewel newJewel = FactoryClass.CreateJewel(name, categoryId, brandId, price, year);
-            return MsJewelRepository.PostNewJewel(newJewel);
+            jewelRepo = new MsJewelRepository();
         }
 
-
-        public static List<MsJewel> GetAllJewels()
+        public List<MsJewel> GetAllJewels()
         {
-            return MsJewelRepository.GetAllJewels();
+            return jewelRepo.GetAllJewels();
         }
-        public static MsJewel GetJewelById(int jewelId)
+
+        public MsJewel GetJewelById(int jewelId)
         {
-            if (jewelId <= 0)
-            {
-                throw new ArgumentException("Jewel ID must be greater than zero.");
-            }
+            return jewelRepo.GetJewelById(jewelId);
+        }
 
-            MsJewel jewel = MsJewelRepository.GetJewelById(jewelId);
+        public bool InsertJewel(int brandId, int categoryId, string jewelName, int jewelPrice, int jewelReleaseYear)
+        {
+            // Validate data before insertion
+            if (string.IsNullOrEmpty(jewelName))
+                return false;
+            if (jewelPrice <= 0)
+                return false;
+            if (jewelReleaseYear <= 0)
+                return false;
 
-            if (jewel == null)
-            {
-                throw new Exception("Jewel not found.");
-            }
+            // Insert jewel using repository
+            return jewelRepo.InsertJewel(brandId, categoryId, jewelName, jewelPrice, jewelReleaseYear);
+        }
 
-            return jewel;
+        public bool UpdateJewel(int jewelId, int brandId, int categoryId, string jewelName, int jewelPrice, int jewelReleaseYear)
+        {
+            // Validate data before update
+            if (string.IsNullOrEmpty(jewelName))
+                return false;
+            if (jewelPrice <= 0)
+                return false;
+            if (jewelReleaseYear <= 0)
+                return false;
+
+            // Update jewel using repository
+            return jewelRepo.UpdateJewel(jewelId, brandId, categoryId, jewelName, jewelPrice, jewelReleaseYear);
+        }
+
+        public bool DeleteJewel(int jewelId)
+        {
+            return jewelRepo.DeleteJewel(jewelId);
         }
     }
 }
