@@ -3,28 +3,38 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data.Entity; // Pastikan referensi ini ada
 
 namespace FinalProjectPSD.Repository
 {
-	public class MsJewelRepository
-	{
-		private static DatabaseJewel db = Singleton.GetDatabase();
+    public class MsJewelRepository
+    {
+        private static DatabaseJewel db = Singleton.GetDatabase();
 
-		public static bool PostNewJewel(MsJewel newJewel)
-		{
-			db.MsJewels.Add(newJewel);
-			return db.SaveChanges() > 0;
-		}
+        public static bool PostNewJewel(MsJewel newJewel)
+        {
+            db.MsJewels.Add(newJewel);
+            return db.SaveChanges() > 0;
+        }
 
-		//public static MsUser GetUserByEmail(string email)
-		//{
-		//	return (from user in db.MsUsers where user.UserEmail.Equals(email) select user).FirstOrDefault();
-		//      }
 
-		//public static MsUser GetUser(string email, string password)
-		//{
-		//	return (from user in db.MsUsers where user.UserEmail.Equals(email) && user.UserPassword.Equals(password) select user).FirstOrDefault();
-		//}
-		//public static MsJewel GetJewels
-	}
+        public static List<MsJewel> GetAllJewels()
+        {
+  
+            return db.MsJewels
+                .Include(j => j.MsBrand)
+                .Include(j => j.MsCategory)
+                .ToList();
+        }
+
+
+        public static MsJewel GetJewelById(int jewelId)
+        {
+            return db.MsJewels
+                .Include(j => j.MsBrand)
+                .Include(j => j.MsCategory)
+                .FirstOrDefault(j => j.JewelID == jewelId);
+        }
+
+    }
 }
