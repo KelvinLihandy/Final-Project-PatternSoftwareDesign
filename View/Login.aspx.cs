@@ -1,4 +1,5 @@
 ﻿using FinalProjectPSD.Controller;
+using FinalProjectPSD.Handler;
 using FinalProjectPSD.Model;
 using FinalProjectPSD.Repository;
 using System;
@@ -25,7 +26,7 @@ namespace FinalProjectPSD.View
             if (!string.IsNullOrEmpty(EmailError.Text) ||
                 !string.IsNullOrEmpty(PasswordError.Text)) return;
 
-            MsUser user = MsUserRepository.GetUser(email, password);
+            MsUser user = AuthHandler.GetUser(email, password);
             if (remember)
             {
                 HttpCookie cookie = new HttpCookie($"{user.UserRole}_cookie")//user mana yang login

@@ -1,4 +1,5 @@
-﻿using FinalProjectPSD.Model;
+﻿using FinalProjectPSD.Handler;
+using FinalProjectPSD.Model;
 using FinalProjectPSD.Repository;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ namespace FinalProjectPSD.Controller
             if (string.IsNullOrWhiteSpace(email)) return "Email is required";
             else
             {
-                user = MsUserRepository.GetUserByEmail(email);
+                user = AuthHandler.GetUser(email);
                 if (user == null) return "Email does not exist";
             }
             return "";

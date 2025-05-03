@@ -15,15 +15,16 @@ namespace FinalProjectPSD.Repository
 			db.MsUsers.Add(newUser);
 			return db.SaveChanges() > 0;
 		}
+		public static List<MsUser> GetUsers()
+		{
+			return (from user in db.MsUsers select user).ToList();
+		}
 		
-		public static MsUser GetUserByEmail(string email)
+		public static MsUser GetUser(string email, string password = null)
 		{
-			return (from user in db.MsUsers where user.UserEmail.Equals(email) select user).FirstOrDefault();
-        }
-
-		public static MsUser GetUser(string email, string password)
-		{
-			return (from user in db.MsUsers where user.UserEmail.Equals(email) && user.UserPassword.Equals(password) select user).FirstOrDefault();
+			return (from user in db.MsUsers 
+					where user.UserEmail.Equals(email) && (password == null || user.UserPassword.Equals(password)) 
+					select user).FirstOrDefault();
 		}
 	}
 }

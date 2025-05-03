@@ -15,7 +15,7 @@ namespace FinalProjectPSD.Controller
             const string emailPattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
             if (string.IsNullOrWhiteSpace(email)) return "Email is required.";
             else if (!Regex.IsMatch(email, emailPattern)) return "Email format is invalid.";
-            else if (MsUserRepository.GetUserByEmail(email) != null) return "Email is already in use.";
+            else if (MsUserRepository.GetUser(email) != null) return "Email is already in use.";
             return "";
         }
         public static string ValidateUserName(string username)
