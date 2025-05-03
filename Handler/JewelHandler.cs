@@ -18,11 +18,11 @@ namespace FinalProjectPSD.Handler
             return MsJewelRepository.PostNewJewel(newJewel);
         }
 
-
         public static List<MsJewel> GetAllJewels()
         {
             return MsJewelRepository.GetAllJewels();
         }
+
         public static MsJewel GetJewelById(int jewelId)
         {
             if (jewelId <= 0)

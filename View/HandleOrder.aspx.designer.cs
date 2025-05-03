@@ -11,25 +11,25 @@ namespace FinalProjectPSD.View
 {
 
 
-    public partial class Home
+    public partial class HandleOrder
     {
 
         /// <summary>
-        /// JewelsRepeater control.
+        /// handleOrderLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView JewelsRepeater;
+        protected global::System.Web.UI.WebControls.Label handleOrderLabel;
 
         /// <summary>
-        /// ErrorLabel control.
+        /// UnfinishedTransactionGridView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ErrorLabel;
+        protected global::System.Web.UI.WebControls.GridView UnfinishedTransactionGridView;
     }
 }

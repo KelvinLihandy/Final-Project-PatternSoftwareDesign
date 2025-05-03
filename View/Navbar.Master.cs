@@ -46,7 +46,18 @@ namespace FinalProjectPSD.View
 
         protected void Logout_Click(object sender, EventArgs e)
         {
-
+            Session.Clear();
+            Session.Abandon();
+            if (Request.Cookies.Count > 0)
+            {
+                foreach (string cookieName in Request.Cookies.AllKeys)
+                {
+                    HttpCookie cookie = new HttpCookie(cookieName);
+                    cookie.Expires = DateTime.Now.AddDays(-1);
+                    Response.Cookies.Add(cookie);
+                }
+            }
+            Response.Redirect("~/View/Home.aspx");
         }
 
         protected void AddJewelPage_Click(object sender, EventArgs e)
@@ -61,7 +72,7 @@ namespace FinalProjectPSD.View
 
         protected void HandleOrderPage_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("~/View/HandleOrder.aspx");
         }
     }
 }
