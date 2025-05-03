@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/View/Navbar.Master" AutoEventWireup="true" CodeBehind="AddJewel.aspx.cs" Inherits="FinalProjectPSD.View.AddJewel" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div style="display: flex; flex-direction: column; gap: 1vh; justify-content: center; align-items: center; height: 93vh; margin-top: 7vh; width: 100vw; ">
+<div style="display: flex; flex-direction: column; gap: 1vh; justify-content: center; align-items: center; height: 93vh; margin-top: 7vh; width: 100vw; ">
 
     <asp:Label ID="addLabel" runat="server" Text="Add Jewel" Style="font-size: 48px; padding-bottom: 2vh; align-self: center;"></asp:Label>
 

@@ -90,6 +90,7 @@
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
     <Content Include="View\AddJewel.aspx" />
+    <Content Include="View\HandleOrder.aspx" />
     <Content Include="View\Home.aspx" />
     <Content Include="View\Login.aspx" />
     <Content Include="View\Register.aspx" />
@@ -100,6 +101,7 @@
     <Compile Include="Controller\LoginController.cs" />
     <Compile Include="Controller\RegisterController.cs" />
     <Compile Include="Factory\FactoryClass.cs" />
+    <Compile Include="Handler\TransactionHandler.cs" />
     <Compile Include="Handler\JewelHandler.cs" />
     <Compile Include="Handler\AuthHandler.cs" />
     <Compile Include="Model\Cart.cs">
@@ -139,6 +141,7 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\TransactionHeaderRepository.cs" />
     <Compile Include="Repository\MsCategoryRepository.cs" />
     <Compile Include="Repository\MsBrandRepository.cs" />
     <Compile Include="Repository\MsJewelRepository.cs" />
@@ -150,6 +153,13 @@
     </Compile>
     <Compile Include="View\AddJewel.aspx.designer.cs">
       <DependentUpon>AddJewel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\HandleOrder.aspx.cs">
+      <DependentUpon>HandleOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\HandleOrder.aspx.designer.cs">
+      <DependentUpon>HandleOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>

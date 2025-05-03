@@ -1,17 +1,12 @@
 ﻿<%@ Page Title="Home - JAwels & Diamonds" Language="C#" MasterPageFile="~/View/Navbar.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="FinalProjectPSD.View.Home" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-
-    </style>
-</asp:Content>
-
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container">
         <h1>Welcome to JAwels & Diamonds</h1>
         <p>Discover our collection of luxury jewelry pieces.</p>
         
         <div class="jewel-container">
-            <asp:Repeater ID="JewelsRepeater" runat="server">
+            <asp:ListView ID="JewelsRepeater" runat="server">
                 <ItemTemplate>
                     <div class="jewel-card">
                         <div class="jewel-name"><%# Eval("JewelName") %></div>
@@ -27,7 +22,7 @@
                 <EmptyDataTemplate>
                     <div class="no-jewels">No jewelry items available at the moment.</div>
                 </EmptyDataTemplate>
-            </asp:Repeater>
+            </asp:ListView>
         </div>
         
         <asp:Label ID="ErrorLabel" runat="server" ForeColor="Red" Visible="false"></asp:Label>
