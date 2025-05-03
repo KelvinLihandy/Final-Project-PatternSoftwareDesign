@@ -22,15 +22,18 @@ namespace FinalProjectPSD.View
 
         private void LoadJewels()
         {
-            // Create handler instance using the repository
             JewelHandler jewelHandler = new JewelHandler();
 
-            // Get all jewels
             List<MsJewel> jewels = jewelHandler.GetAllJewels();
 
-            // Bind the data to the repeater
-            JewelRepeater.DataSource = jewels;
-            JewelRepeater.DataBind();
+            JewelGridView.DataSource = jewels;
+            JewelGridView.DataBind();
+        }
+
+        protected void JewelGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            JewelGridView.PageIndex = e.NewPageIndex;
+            LoadJewels();
         }
     }
 }
