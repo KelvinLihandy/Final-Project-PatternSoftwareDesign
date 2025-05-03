@@ -1,11 +1,12 @@
-﻿using FinalProjectPSD.Handler;
-using FinalProjectPSD.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using FinalProjectPSD.Handler;
+using FinalProjectPSD.Repository;
+using FinalProjectPSD.Model;
 
 namespace FinalProjectPSD.View
 {
@@ -21,29 +22,18 @@ namespace FinalProjectPSD.View
 
         private void LoadJewels()
         {
-            try
-            {
-                List<MsJewel> jewels = JewelHandler.GetAllJewels();
+            JewelHandler jewelHandler = new JewelHandler();
 
-                if (jewels != null && jewels.Count > 0)
-                {
-                    JewelsRepeater.DataSource = jewels;
-                    JewelsRepeater.DataBind();
-                }
-                else
-                {
-                    JewelsRepeater.DataSource = null;
-                    JewelsRepeater.DataBind();
+            List<MsJewel> jewels = jewelHandler.GetAllJewels();
 
-                    ErrorLabel.Text = "No jewelry items found.";
-                    ErrorLabel.Visible = true;
-                }
-            }
-            catch (Exception ex)
-            {
-                ErrorLabel.Text = "Error loading jewelry: " + ex.Message;
-                ErrorLabel.Visible = true;
-            }
+            JewelGridView.DataSource = jewels;
+            JewelGridView.DataBind();
+        }
+
+        protected void JewelGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            JewelGridView.PageIndex = e.NewPageIndex;
+            LoadJewels();
         }
     }
 }
