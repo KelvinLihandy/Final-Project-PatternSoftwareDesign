@@ -22,9 +22,7 @@ namespace FinalProjectPSD.View
 
         private void LoadJewels()
         {
-            JewelHandler jewelHandler = new JewelHandler();
-
-            List<MsJewel> jewels = jewelHandler.GetAllJewels();
+            List<MsJewel> jewels = JewelHandler.GetAllJewels();
 
             JewelGridView.DataSource = jewels;
             JewelGridView.DataBind();
