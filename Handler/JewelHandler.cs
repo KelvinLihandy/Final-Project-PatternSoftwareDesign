@@ -39,5 +39,28 @@ namespace FinalProjectPSD.Handler
 
             return jewel;
         }
+
+        public static bool UpdateJewel(int jewelId, string name, int categoryId, int brandId, int price, int year)
+        {
+            if (jewelId <= 0)
+            {
+                throw new ArgumentException("Jewel ID must be greater than zero.");
+            }
+
+            MsJewel existingJewel = MsJewelRepository.GetJewelById(jewelId);
+
+            if (existingJewel == null)
+            {
+                throw new Exception("Jewel not found.");
+            }
+
+            existingJewel.JewelName = name;
+            existingJewel.CategoryID = categoryId;
+            existingJewel.BrandID = brandId;
+            existingJewel.JewelPrice = price;
+            existingJewel.JewelReleaseYear = year;
+
+            return MsJewelRepository.UpdateJewel(existingJewel);
+        }
     }
 }

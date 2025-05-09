@@ -95,6 +95,7 @@
     <Content Include="View\JewelDetail.aspx" />
     <Content Include="View\Login.aspx" />
     <Content Include="View\Register.aspx" />
+    <Content Include="View\UpdateJewel.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -196,6 +197,13 @@
     </Compile>
     <Compile Include="View\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\UpdateJewel.aspx.cs">
+      <DependentUpon>UpdateJewel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\UpdateJewel.aspx.designer.cs">
+      <DependentUpon>UpdateJewel.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

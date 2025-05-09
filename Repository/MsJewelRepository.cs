@@ -206,5 +206,18 @@ namespace FinalProjectPSD.Repository
         {
             return (from jewel in db.MsJewels where jewel.JewelID == id select jewel).FirstOrDefault();
         }
+
+        public static bool UpdateJewel(MsJewel updatedJewel)
+        {
+            MsJewel existingJewel = db.MsJewels.FirstOrDefault(j => j.JewelID == updatedJewel.JewelID);
+
+            if (existingJewel != null)
+            {
+                db.Entry(existingJewel).CurrentValues.SetValues(updatedJewel);
+                return db.SaveChanges() > 0;
+            }
+
+            return false;
+        }
     }
 }
