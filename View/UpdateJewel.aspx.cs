@@ -39,7 +39,6 @@ namespace FinalProjectPSD.View
                 ddlBrand.DataTextField = "BrandName";
                 ddlBrand.DataValueField = "BrandID";
                 ddlBrand.DataBind();
-                }
             }
         }
 

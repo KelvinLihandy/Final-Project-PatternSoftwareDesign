@@ -20,9 +20,6 @@
                                 <a href='ShowDetails.aspx?id=<%# Eval("JewelID") %>' style="display: block; width: 80%; padding: 8px; background-color: #3a7b4c; color: white; text-align: center; border: none; border-radius: 4px; cursor: pointer; text-decoration: none; justify-self:center">
                                     View Details
                                 </a>
-                                <%--<a href='UpdateJewel.aspx?JewelID=<%# Eval("JewelID") %>' style="display: block; width: 80%; padding: 8px; background-color: #3a7b4c; color: white; text-align: center; border: none; border-radius: 4px; cursor: pointer; text-decoration: none; justify-self:center">
-                                    View Details
-                                </a>--%>
                             </div>
                         </ItemTemplate>
                         <ItemStyle Width="33%" />
