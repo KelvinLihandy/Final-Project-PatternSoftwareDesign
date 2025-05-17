@@ -2,11 +2,8 @@
 using FinalProjectPSD.Handler;
 using FinalProjectPSD.Model;
 using FinalProjectPSD.Repository;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using System;
 
 namespace FinalProjectPSD.View
 {
@@ -39,7 +36,6 @@ namespace FinalProjectPSD.View
                 ddlBrand.DataTextField = "BrandName";
                 ddlBrand.DataValueField = "BrandID";
                 ddlBrand.DataBind();
-                }
             }
         }
 
@@ -56,15 +52,9 @@ namespace FinalProjectPSD.View
             string priceText = txtPrice.Text.Trim();
             string yearText = txtReleaseYear.Text.Trim();
 
-            // Debugging
-            //LabelResult.Text = $"Selected Category ID: {category}, Brand ID: {brand}";
-            //System.Diagnostics.Debug.WriteLine($"Selected Category: {category}, Brand: {brand}");
-            //System.Diagnostics.Debug.WriteLine($"Category dropdown items: {ddlCategory.Items.Count}");
-            //System.Diagnostics.Debug.WriteLine($"Brand dropdown items: {ddlBrand.Items.Count}");
-
             string nameError = JewelController.ValidateName(jewelName);
-            string categoryError = JewelController.ValidateCategoryById(category);  
-            string brandError = JewelController.ValidateBrandById(brand);  
+            string categoryError = JewelController.ValidateCategoryById(category);
+            string brandError = JewelController.ValidateBrandById(brand);
             object[] priceValidation = JewelController.ValidatePrice(priceText);
             object[] yearValidation = JewelController.ValidateYear(yearText);
 
@@ -120,7 +110,6 @@ namespace FinalProjectPSD.View
 
             if (isUpdated)
             {
-                // Redirect to the jewel details page not yet created
                 Response.Redirect("~/JewelDetails.aspx?JewelID=" + jewelId);
             }
             else
