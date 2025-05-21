@@ -38,18 +38,17 @@ namespace FinalProjectPSD.View
                 lblClass.Text = "Class: " + jewel.MsBrand.BrandClass;
                 lblPrice.Text = "Price: $" + jewel.JewelPrice;
                 lblYear.Text = "Release Year: " + jewel.JewelReleaseYear;
-
-                // Set button visibility based on role
-                string role = Session["UserRole"]?.ToString();
-                if (role == "Customer")
-                {
-                    btnAddToCart.Visible = true;
-                }
-                else if (role == "Admin")
-                {
-                    btnEdit.Visible = true;
-                    btnDelete.Visible = true;
-                }
+            }
+            // Set button visibility based on role
+            string role = Session["UserRole"]?.ToString();
+            if (role == "customer")
+            {
+                btnAddToCart.Visible = true;
+            }
+            else if (role == "admin")
+            {
+                btnEdit.Visible = true;
+                btnDelete.Visible = true;
             }
         }
 
