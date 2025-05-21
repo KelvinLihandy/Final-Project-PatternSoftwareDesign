@@ -62,7 +62,7 @@ namespace FinalProjectPSD.View
 
         protected void ProfilePage_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("~/View/Profile.aspx");
         }
 
         protected void Logout_Click(object sender, EventArgs e)
