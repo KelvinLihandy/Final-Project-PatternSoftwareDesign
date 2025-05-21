@@ -17,8 +17,9 @@
                                     <div style="font-size: 18px; font-weight: bold; margin-bottom: 5px;"><%# Eval("JewelName") %></div>
                                     <div style="font-size: 16px; font-weight: bold; color: #3a7b4c;">$<%# Eval("JewelPrice", "{0:N0}") %></div>
                                 </div>
-                                <a href='ShowDetails.aspx?id=<%# Eval("JewelID") %>' style="display: block; width: 80%; padding: 8px; background-color: #3a7b4c; color: white; text-align: center; border: none; border-radius: 4px; cursor: pointer; text-decoration: none; justify-self:center">
+                                <a href='JewelDetail.aspx?JewelID=<%# Eval("JewelID") %>' style="display: block; width: 80%; padding: 8px; background-color: #3a7b4c; color: white; text-align: center; border: none; border-radius: 4px; cursor: pointer; text-decoration: none; justify-self:center">
                                     View Details
+
                                 </a>
                             </div>
                         </ItemTemplate>

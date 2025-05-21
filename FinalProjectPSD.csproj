@@ -103,11 +103,13 @@
   <ItemGroup>
     <Compile Include="Controller\CartController.cs" />
     <Compile Include="Controller\JewelController.cs" />
+    <Compile Include="Controller\JewelDetailController.cs" />
     <Compile Include="Controller\LoginController.cs" />
     <Compile Include="Controller\ProfileController.cs" />
     <Compile Include="Controller\RegisterController.cs" />
     <Compile Include="Factory\FactoryClass.cs" />
     <Compile Include="Handler\CartHandler.cs" />
+    <Compile Include="Handler\JewelDetailHandler.cs" />
     <Compile Include="Handler\ProfileHandler.cs" />
     <Compile Include="Handler\TransactionHandler.cs" />
     <Compile Include="Handler\JewelHandler.cs" />
@@ -151,6 +153,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\CartRepository.cs" />
     <Compile Include="Repository\IUserRepository.cs" />
+    <Compile Include="Repository\JewelDetailRepository.cs" />
     <Compile Include="Repository\TransactionHeaderRepository.cs" />
     <Compile Include="Repository\MsCategoryRepository.cs" />
     <Compile Include="Repository\MsBrandRepository.cs" />
