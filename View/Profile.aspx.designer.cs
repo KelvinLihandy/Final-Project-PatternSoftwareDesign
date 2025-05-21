@@ -11,98 +11,107 @@ namespace FinalProjectPSD.View
 {
 
 
-    public partial class JewelDetail
+    public partial class Profile
     {
 
         /// <summary>
-        /// lblJewelName control.
+        /// lblUsername control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblJewelName;
+        protected global::System.Web.UI.WebControls.Label lblUsername;
 
         /// <summary>
-        /// lblCategory control.
+        /// lblEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCategory;
+        protected global::System.Web.UI.WebControls.Label lblEmail;
 
         /// <summary>
-        /// lblBrand control.
+        /// lblGender control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblBrand;
+        protected global::System.Web.UI.WebControls.Label lblGender;
 
         /// <summary>
-        /// lblCountry control.
+        /// lblDOB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCountry;
+        protected global::System.Web.UI.WebControls.Label lblDOB;
 
         /// <summary>
-        /// lblClass control.
+        /// lblOldPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblClass;
+        protected global::System.Web.UI.WebControls.Label lblOldPassword;
 
         /// <summary>
-        /// lblPrice control.
+        /// txtOldPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPrice;
+        protected global::System.Web.UI.WebControls.TextBox txtOldPassword;
 
         /// <summary>
-        /// lblYear control.
+        /// lblNewPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblYear;
+        protected global::System.Web.UI.WebControls.Label lblNewPassword;
 
         /// <summary>
-        /// btnAddToCart control.
+        /// txtNewPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddToCart;
+        protected global::System.Web.UI.WebControls.TextBox txtNewPassword;
 
         /// <summary>
-        /// btnEdit control.
+        /// lblConfirmPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEdit;
+        protected global::System.Web.UI.WebControls.Label lblConfirmPassword;
 
         /// <summary>
-        /// btnDelete control.
+        /// txtConfirmPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDelete;
+        protected global::System.Web.UI.WebControls.TextBox txtConfirmPassword;
+
+        /// <summary>
+        /// btnChangePassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnChangePassword;
 
         /// <summary>
         /// lblMessage control.
