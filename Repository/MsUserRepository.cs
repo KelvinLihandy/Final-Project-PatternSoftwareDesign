@@ -26,5 +26,12 @@ namespace FinalProjectPSD.Repository
 					where user.UserEmail.Equals(email) && (password == null || user.UserPassword.Equals(password)) 
 					select user).FirstOrDefault();
 		}
+
+		public static MsUser GetUserById(int id)
+		{
+            return (from user in db.MsUsers
+                    where user.UserID == id
+                    select user).FirstOrDefault();
+        }
 	}
 }
