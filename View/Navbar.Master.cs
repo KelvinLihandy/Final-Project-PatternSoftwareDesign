@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FinalProjectPSD.Handler;
+using FinalProjectPSD.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +13,30 @@ namespace FinalProjectPSD.View
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["UserID"] == null)
+            {
+                string[] roles = { "admin", "customer" };
 
+                foreach (string role in roles)
+                {
+                    HttpCookie cookie = Request.Cookies[$"{role}_cookie"];
+                    if (cookie != null)
+                    {
+                        int userId;
+                        if (int.TryParse(cookie.Value, out userId))
+                        {
+                            MsUser user = AuthHandler.GetUserById(userId);
+                            if (user != null)
+                            {
+                                Session["UserID"] = user.UserID;
+                                Session["UserRole"] = user.UserRole;
+                                Session[user.UserRole] = user;
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         protected void Loginpage_Click(object sender, EventArgs e)

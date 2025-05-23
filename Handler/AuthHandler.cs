@@ -4,6 +4,7 @@ using FinalProjectPSD.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 
 namespace FinalProjectPSD.Handler
@@ -25,6 +26,11 @@ namespace FinalProjectPSD.Handler
 			MsUser newUser = FactoryClass.CreateUser(username, password, email, DateTime.Parse(dob), gender);
             return MsUserRepository.PostNewUser(newUser);
         }
+
+		public static MsUser GetUserById(int userId)
+		{
+			return MsUserRepository.GetUserById(userId);
+		}
 
 
 	}
