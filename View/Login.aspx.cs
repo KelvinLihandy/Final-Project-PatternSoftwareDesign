@@ -41,6 +41,8 @@ namespace FinalProjectPSD.View
 
             if (user != null)
             {
+                Session["UserID"] = user.UserID;
+                Session["UserRole"] = user.UserRole;
                 Session[user.UserRole] = user; //simpen data login manual user sekarang. kalau ada cookie bisa dipake kalau gada session (user ga login manual)
                 Response.Redirect("~/View/Home.aspx");
             }

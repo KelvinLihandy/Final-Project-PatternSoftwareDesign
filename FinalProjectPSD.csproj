@@ -90,19 +90,26 @@
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
     <Content Include="View\AddJewel.aspx" />
+    <Content Include="View\Cart.aspx" />
     <Content Include="View\HandleOrder.aspx" />
     <Content Include="View\Home.aspx" />
     <Content Include="View\JewelDetail.aspx" />
     <Content Include="View\Login.aspx" />
+    <Content Include="View\Profile.aspx" />
     <Content Include="View\Register.aspx" />
-    <Content Include="View\MyOrders.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\CartController.cs" />
     <Compile Include="Controller\JewelController.cs" />
+    <Compile Include="Controller\JewelDetailController.cs" />
     <Compile Include="Controller\LoginController.cs" />
+    <Compile Include="Controller\ProfileController.cs" />
     <Compile Include="Controller\RegisterController.cs" />
     <Compile Include="Factory\FactoryClass.cs" />
+    <Compile Include="Handler\CartHandler.cs" />
+    <Compile Include="Handler\JewelDetailHandler.cs" />
+    <Compile Include="Handler\ProfileHandler.cs" />
     <Compile Include="Handler\TransactionHandler.cs" />
     <Compile Include="Handler\JewelHandler.cs" />
     <Compile Include="Handler\AuthHandler.cs" />
@@ -143,18 +150,29 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\CartRepository.cs" />
+    <Compile Include="Repository\IUserRepository.cs" />
+    <Compile Include="Repository\JewelDetailRepository.cs" />
     <Compile Include="Repository\TransactionHeaderRepository.cs" />
     <Compile Include="Repository\MsCategoryRepository.cs" />
     <Compile Include="Repository\MsBrandRepository.cs" />
     <Compile Include="Repository\MsJewelRepository.cs" />
     <Compile Include="Repository\Singleton.cs" />
     <Compile Include="Repository\MsUserRepository.cs" />
+    <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="View\AddJewel.aspx.cs">
       <DependentUpon>AddJewel.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="View\AddJewel.aspx.designer.cs">
       <DependentUpon>AddJewel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Cart.aspx.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Cart.aspx.designer.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\HandleOrder.aspx.cs">
       <DependentUpon>HandleOrder.aspx</DependentUpon>
@@ -191,19 +209,19 @@
     <Compile Include="View\Navbar.Master.designer.cs">
       <DependentUpon>Navbar.Master</DependentUpon>
     </Compile>
+    <Compile Include="View\Profile.aspx.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Profile.aspx.designer.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+    </Compile>
     <Compile Include="View\Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="View\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="View\MyOrders.aspx.cs">
-      <DependentUpon>MyOrders.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="View\MyOrders.aspx.designer.cs">
-      <DependentUpon>MyOrders.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

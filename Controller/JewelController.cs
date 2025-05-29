@@ -27,6 +27,37 @@ namespace FinalProjectPSD.Controller
             if (!brandList.Any(b => b.BrandName == brand)) return "Must be selected from list of brands";
             return "";
         }
+
+        public static string ValidateCategoryById(string categoryID)
+        {
+            if (string.IsNullOrEmpty(categoryID))
+                return "Category must be selected";
+
+            if (!int.TryParse(categoryID, out int id))
+                return "Invalid category ID format";
+
+            List<MsCategory> categoryList = MsCategoryRepository.GetCategories();
+            if (!categoryList.Any(c => c.CategoryID == id))
+                return "Must be selected from list of categories";
+
+            return "";
+        }
+
+        public static string ValidateBrandById(string brandID)
+        {
+            if (string.IsNullOrEmpty(brandID))
+                return "Brand must be selected";
+
+            if (!int.TryParse(brandID, out int id))
+                return "Invalid brand ID format";
+
+            List<MsBrand> brandList = MsBrandRepository.GetBrands();
+            if (!brandList.Any(b => b.BrandID == id))
+                return "Must be selected from list of brands";
+
+            return "";
+        }
+
         public static object[] ValidatePrice(string priceString)
         {
             if (!int.TryParse(priceString, out int price)) return new object[] { "Must be a number" };
@@ -37,7 +68,7 @@ namespace FinalProjectPSD.Controller
         {
             if (!int.TryParse(yearString, out int year)) return new object[] { "Must be a number and less than the current year." };
             if (year >= DateTime.Now.Year) return new object[] { "Must less than current year" };
-            return new object[] { "Must be a number and less than the current year.", year };
+            return new object[] { "", year };
         }
     }
 }
