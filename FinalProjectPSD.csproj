@@ -95,6 +95,7 @@
     <Content Include="View\Home.aspx" />
     <Content Include="View\JewelDetail.aspx" />
     <Content Include="View\Login.aspx" />
+    <Content Include="View\MyOrders.aspx" />
     <Content Include="View\Profile.aspx" />
     <Content Include="View\Register.aspx" />
     <Content Include="Web.config" />
@@ -201,6 +202,13 @@
     </Compile>
     <Compile Include="View\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\MyOrders.aspx.cs">
+      <DependentUpon>MyOrders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\MyOrders.aspx.designer.cs">
+      <DependentUpon>MyOrders.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\Navbar.Master.cs">
       <DependentUpon>Navbar.Master</DependentUpon>

@@ -11,7 +11,8 @@ namespace FinalProjectPSD.Handler
 {
     public class TransactionHandler
     {
-        // Existing methods
+
+
         public static List<TransactionHeader> GetUnfinishedTransactions()
         {
             return TransactionHeaderRepository.GetTransactionHeaders();
@@ -34,27 +35,41 @@ namespace FinalProjectPSD.Handler
             return TransactionHeaderRepository.SetTransactionStatus(header, "Arrived");
         }
 
-        // New methods for My Orders page
-        public List<TransactionHeader> GetUserTransactions(int userId)
+        // ==================== NEW METHODS FOR MY ORDERS PAGE (NOMOR 11) ====================
+
+        /// <summary>
+        /// Get all transactions for a specific user (for My Orders page)
+        /// </summary>
+        public static List<TransactionHeader> GetUserTransactions(int userId)
         {
             return TransactionHeaderRepository.GetTransactionsByUserId(userId);
         }
 
-        public bool UpdateTransactionStatus(int transactionId, string status)
+        /// <summary>
+        /// Update transaction status (for Confirm Package and Reject Package buttons)
+        /// </summary>
+        public static bool UpdateTransactionStatus(int transactionId, string status)
         {
             TransactionHeader header = GetTransactionHeader(transactionId);
-            return TransactionHeaderRepository.SetTransactionStatus(header, status);
+            if (header != null)
+            {
+                return TransactionHeaderRepository.SetTransactionStatus(header, status);
+            }
+            return false;
         }
 
+        // ==================== METHOD FOR NOMOR 12 - COMMENTED OUT ====================
+        // TODO: Uncomment this when TransactionDetailView class is created (for teammate)
+
+        /*
         public List<TransactionDetailView> GetTransactionItems(int transactionId)
         {
             List<TransactionDetail> details = TransactionDetailRepository.GetTransactionDetailsByTransactionId(transactionId);
             List<TransactionDetailView> detailViews = new List<TransactionDetailView>();
-
+            
             foreach (var detail in details)
             {
                 MsJewel jewel = MsJewelRepository.GetJewelById(detail.JewelID);
-
                 TransactionDetailView detailView = new TransactionDetailView
                 {
                     TransactionID = detail.TransactionID,
@@ -63,11 +78,10 @@ namespace FinalProjectPSD.Handler
                     Quantity = detail.Quantity,
                     JewelPrice = jewel.JewelPrice
                 };
-
                 detailViews.Add(detailView);
             }
-
             return detailViews;
         }
+        */
     }
 }
