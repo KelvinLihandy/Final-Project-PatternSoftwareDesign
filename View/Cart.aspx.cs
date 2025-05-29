@@ -32,13 +32,11 @@ namespace FinalProjectPSD.View
 
         private int GetUserId()
         {
-            // Cek dari query string terlebih dahulu
             string userIdStr = Request.QueryString["userId"];
             if (!string.IsNullOrEmpty(userIdStr))
             {
                 return Convert.ToInt32(userIdStr);
             }
-            // Fallback ke session jika tidak ada di query string
             return Convert.ToInt32(Session["UserId"]);
         }
 
@@ -53,7 +51,6 @@ namespace FinalProjectPSD.View
 
             System.Diagnostics.Debug.WriteLine($"Binding {cartItems.Rows.Count} items to GridView");
 
-            // Calculate and display total
             decimal total = 0;
             foreach (DataRow row in cartItems.Rows)
             {
@@ -62,7 +59,6 @@ namespace FinalProjectPSD.View
 
             TotalLabel.Text = "$" + string.Format("{0:N2}", total);
 
-            // Make the checkout button enabled only if there are items in cart
             CheckoutButton.Enabled = cartItems.Rows.Count > 0;
         }
 
@@ -73,7 +69,6 @@ namespace FinalProjectPSD.View
 
             if (e.CommandName == "UpdateItem")
             {
-                // Find the row that was clicked
                 int rowIndex = -1;
                 for (int i = 0; i < CartGridView.Rows.Count; i++)
                 {
@@ -86,7 +81,6 @@ namespace FinalProjectPSD.View
 
                 if (rowIndex >= 0)
                 {
-                    // Get the quantity TextBox from the row
                     GridViewRow row = CartGridView.Rows[rowIndex];
                     TextBox quantityTextBox = (TextBox)row.FindControl("QuantityTextBox");
                     string quantityStr = quantityTextBox.Text;
@@ -94,13 +88,11 @@ namespace FinalProjectPSD.View
                     string errorMessage = cartController.UpdateCartItemQuantity(userId, jewelId, quantityStr);
                     if (!string.IsNullOrEmpty(errorMessage))
                     {
-                        // Show error message
                         ScriptManager.RegisterStartupScript(this, GetType(), "alert",
                             $"alert('{errorMessage}');", true);
                     }
                     else
                     {
-                        // Refresh the cart
                         LoadCartItems();
                     }
                 }
@@ -110,13 +102,11 @@ namespace FinalProjectPSD.View
                 string errorMessage = cartController.RemoveCartItem(userId, jewelId);
                 if (!string.IsNullOrEmpty(errorMessage))
                 {
-                    // Show error message
                     ScriptManager.RegisterStartupScript(this, GetType(), "alert",
                         $"alert('{errorMessage}');", true);
                 }
                 else
                 {
-                    // Refresh the cart
                     LoadCartItems();
                 }
             }
@@ -129,13 +119,11 @@ namespace FinalProjectPSD.View
 
             if (!string.IsNullOrEmpty(errorMessage))
             {
-                // Show error message
                 ScriptManager.RegisterStartupScript(this, GetType(), "alert",
                     $"alert('{errorMessage}');", true);
             }
             else
             {
-                // Refresh the cart
                 LoadCartItems();
             }
         }
@@ -149,13 +137,11 @@ namespace FinalProjectPSD.View
 
             if (!string.IsNullOrEmpty(errorMessage))
             {
-                // Show error message
                 ScriptManager.RegisterStartupScript(this, GetType(), "alert",
                     $"alert('{errorMessage}');", true);
             }
             else
             {
-                // Show success message and redirect
                 ScriptManager.RegisterStartupScript(this, GetType(), "alert",
                     "alert('Checkout completed successfully!'); window.location='Home.aspx';", true);
             }
