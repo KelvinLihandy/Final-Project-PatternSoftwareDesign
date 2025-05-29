@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using FinalProjectPSD.Model;
 using FinalProjectPSD.Handler;
+using FinalProjectPSD.Controller;
 
 namespace FinalProjectPSD.View
 {
@@ -13,20 +14,14 @@ namespace FinalProjectPSD.View
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            // This page is only available to customers
-            if (Session["user"] == null)
-            {
-                Response.Redirect("~/View/Login.aspx");
-                return;
-            }
-
-            MsUser currentUser = (MsUser)Session["user"];
-            if (currentUser.UserRole != "Customer")
+            if (Session["customer"] == null && Session["admin"] == null && Request.Cookies["customer_cookie"] == null && Request.Cookies["admin_cookie"] == null)
             {
                 Response.Redirect("~/View/Home.aspx");
-                return;
             }
-
+            else if ((Session["admin"] != null || Request.Cookies["admin_cookie"] != null) && (Session["customer"] == null && Request.Cookies["customer_cookie"] == null))
+            {
+                Response.Redirect("~/View/Home.aspx");
+            }
             if (!IsPostBack)
             {
                 LoadUserTransactions();
@@ -37,10 +32,7 @@ namespace FinalProjectPSD.View
         {
             try
             {
-                MsUser currentUser = (MsUser)Session["user"];
-
-                // Display the history of all user transactions
-                // Data to be shown are Transaction ID, Transaction Date, Payment Method, and Status
+                MsUser currentUser = (MsUser)Session["customer"];
                 List<TransactionHeader> userTransactions = TransactionHandler.GetUserTransactions(currentUser.UserID);
 
                 gvMyOrders.DataSource = userTransactions;
@@ -48,7 +40,6 @@ namespace FinalProjectPSD.View
             }
             catch (Exception ex)
             {
-                // Handle error gracefully
                 Response.Write("<script>alert('Error loading transactions: " + ex.Message + "');</script>");
             }
         }
@@ -62,18 +53,15 @@ namespace FinalProjectPSD.View
                 switch (e.CommandName)
                 {
                     case "ViewDetails":
-                        // Provide a view details button that will direct the user to the transaction detail page of the selected row
-                        // The transaction ID must be passed using URL's query string parameter
                         Response.Redirect("~/View/TransactionDetail.aspx?TransactionID=" + transactionID);
                         break;
 
                     case "ConfirmPackage":
-                        // If "Confirm Package" button is clicked, change the transaction status to "Done"
                         bool confirmResult = TransactionHandler.UpdateTransactionStatus(transactionID, "Done");
 
                         if (confirmResult)
                         {
-                            LoadUserTransactions(); // Refresh the grid to show updated status
+                            LoadUserTransactions();
                             Response.Write("<script>alert('Package confirmed successfully!');</script>");
                         }
                         else
@@ -83,12 +71,11 @@ namespace FinalProjectPSD.View
                         break;
 
                     case "RejectPackage":
-                        // If "Reject Package" button is clicked, change the transaction status to "Rejected"
                         bool rejectResult = TransactionHandler.UpdateTransactionStatus(transactionID, "Rejected");
 
                         if (rejectResult)
                         {
-                            LoadUserTransactions(); // Refresh the grid to show updated status
+                            LoadUserTransactions();
                             Response.Write("<script>alert('Package rejected successfully!');</script>");
                         }
                         else

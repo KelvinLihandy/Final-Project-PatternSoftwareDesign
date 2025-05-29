@@ -39,7 +39,6 @@ namespace FinalProjectPSD.View
                 lblPrice.Text = "Price: $" + jewel.JewelPrice;
                 lblYear.Text = "Release Year: " + jewel.JewelReleaseYear;
 
-                // Set button visibility based on role
                 string role = Session["UserRole"]?.ToString();
                 if (role == "Customer")
                 {

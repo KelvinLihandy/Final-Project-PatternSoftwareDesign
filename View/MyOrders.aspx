@@ -1,13 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/View/Navbar.Master" AutoEventWireup="true" CodeBehind="MyOrders.aspx.cs" Inherits="FinalProjectPSD.View.MyOrders" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>My Orders</title>
-</asp:Content>
-
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container">
-        <h2>My Orders</h2>
-        <div class="row mt-4">
+    <div class="container" style="">
+        <h2 style="text-align: center; margin: 30px 0; color: #333;" >My Orders</h2>
+        <div class="row mt-4" style="width: 100%; margin-top: 60px; display: flex; justify-content: center;">
             <div class="col-12">
                 <asp:GridView ID="gvMyOrders" runat="server" 
                     AutoGenerateColumns="false" 
@@ -26,8 +22,6 @@
                                     CommandName="ViewDetails" 
                                     CommandArgument='<%# Eval("TransactionID") %>'
                                     CssClass="btn btn-primary btn-sm" />
-                                
-                                <!-- Confirm & Reject Package Buttons - Only for "Arrived" status -->
                                 <asp:Panel ID="pnlArrivedActions" runat="server" 
                                     Visible='<%# Eval("TransactionStatus").ToString() == "Arrived" %>'>
                                     <asp:Button ID="btnConfirmPackage" runat="server" 
