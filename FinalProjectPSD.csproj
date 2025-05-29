@@ -95,9 +95,9 @@
     <Content Include="View\Home.aspx" />
     <Content Include="View\JewelDetail.aspx" />
     <Content Include="View\Login.aspx" />
+    <Content Include="View\MyOrders.aspx" />
     <Content Include="View\Profile.aspx" />
     <Content Include="View\Register.aspx" />
-    <Content Include="View\UpdateJewel.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -203,6 +203,13 @@
     <Compile Include="View\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="View\MyOrders.aspx.cs">
+      <DependentUpon>MyOrders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\MyOrders.aspx.designer.cs">
+      <DependentUpon>MyOrders.aspx</DependentUpon>
+    </Compile>
     <Compile Include="View\Navbar.Master.cs">
       <DependentUpon>Navbar.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -223,13 +230,6 @@
     </Compile>
     <Compile Include="View\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="View\UpdateJewel.aspx.cs">
-      <DependentUpon>UpdateJewel.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="View\UpdateJewel.aspx.designer.cs">
-      <DependentUpon>UpdateJewel.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

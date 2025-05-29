@@ -29,5 +29,13 @@ namespace FinalProjectPSD.Repository
 			header.TransactionStatus = status;
 			return db.SaveChanges() > 0;
 		}
-	}
+
+        public static List<TransactionHeader> GetTransactionsByUserId(int userId)
+        {
+            return db.TransactionHeaders
+                     .Where(t => t.UserID == userId)
+                     .OrderByDescending(t => t.TransactionDate)
+                     .ToList();
+        }
+    }
 }
