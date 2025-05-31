@@ -32,5 +32,10 @@ namespace FinalProjectPSD.Handler
             TransactionHeader header = GetTransactionHeader(transactionId);
             return TransactionHeaderRepository.SetTransactionStatus(header, "Arrived");
         }
+
+        public static List<TransactionHeader> GetData()
+        {
+            return TransactionHeaderRepository.GetData();
+        }
     }
 }

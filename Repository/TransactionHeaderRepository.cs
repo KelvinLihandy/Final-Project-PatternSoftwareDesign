@@ -29,5 +29,11 @@ namespace FinalProjectPSD.Repository
 			header.TransactionStatus = status;
 			return db.SaveChanges() > 0;
 		}
+
+		public static List<TransactionHeader> GetData()
+		{
+			DatabaseJewel db = new DatabaseJewel();
+			return db.TransactionHeaders.ToList();
+        }
 	}
 }

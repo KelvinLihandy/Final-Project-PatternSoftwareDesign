@@ -16,14 +16,14 @@ namespace FinalProjectPSD.View
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!int.TryParse(Request.QueryString["JewelID"], out jewelId))
+            {
+                lblMessage.Text = "Invalid Jewel ID.";
+                return;
+            }
+
             if (!IsPostBack)
             {
-                if (!int.TryParse(Request.QueryString["JewelID"], out jewelId))
-                {
-                    lblMessage.Text = "Invalid Jewel ID.";
-                    return;
-                }
-
                 MsJewel jewel = JewelDetailController.GetJewelById(jewelId);
                 if (jewel == null)
                 {
@@ -38,19 +38,12 @@ namespace FinalProjectPSD.View
                 lblClass.Text = "Class: " + jewel.MsBrand.BrandClass;
                 lblPrice.Text = "Price: $" + jewel.JewelPrice;
                 lblYear.Text = "Release Year: " + jewel.JewelReleaseYear;
-
-                // Set button visibility based on role
-                string role = Session["UserRole"]?.ToString();
-                if (role == "Customer")
-                {
-                    btnAddToCart.Visible = true;
-                }
-                else if (role == "Admin")
-                {
-                    btnEdit.Visible = true;
-                    btnDelete.Visible = true;
-                }
             }
+
+            string role = Session["UserRole"]?.ToString();
+            btnAddToCart.Visible = (role == "customer");
+            btnEdit.Visible = (role == "admin");
+            btnDelete.Visible = (role == "admin");
         }
 
         protected void btnAddToCart_Click(object sender, EventArgs e)
@@ -58,6 +51,7 @@ namespace FinalProjectPSD.View
             int userId = (int)Session["UserID"];
             string result = JewelDetailController.AddToCart(userId, jewelId);
             lblMessage.Text = result;
+            Response.Redirect("Cart.aspx");
         }
 
         protected void btnEdit_Click(object sender, EventArgs e)
