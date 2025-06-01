@@ -35,6 +35,10 @@ namespace FinalProjectPSD.Handler
             return TransactionHeaderRepository.SetTransactionStatus(header, "Arrived");
         }
 
+        public static List<TransactionHeader> GetData()
+        {
+            return TransactionHeaderRepository.GetData();
+        }
         // ==================== NEW METHODS FOR MY ORDERS PAGE (NOMOR 11) ====================
 
         /// <summary>

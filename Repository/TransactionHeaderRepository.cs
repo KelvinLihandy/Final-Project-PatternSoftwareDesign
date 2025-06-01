@@ -30,6 +30,12 @@ namespace FinalProjectPSD.Repository
 			return db.SaveChanges() > 0;
 		}
 
+		public static List<TransactionHeader> GetData()
+		{
+			DatabaseJewel db = new DatabaseJewel();
+			return db.TransactionHeaders.ToList();
+        }
+	}
         public static List<TransactionHeader> GetTransactionsByUserId(int userId)
         {
             return db.TransactionHeaders

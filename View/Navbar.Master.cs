@@ -106,7 +106,7 @@ namespace FinalProjectPSD.View
 
         protected void ReportPage_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("~/View/Report.aspx");
         }
 
         protected void HandleOrderPage_Click(object sender, EventArgs e)
