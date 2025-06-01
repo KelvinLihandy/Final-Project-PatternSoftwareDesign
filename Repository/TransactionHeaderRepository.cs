@@ -36,4 +36,12 @@ namespace FinalProjectPSD.Repository
 			return db.TransactionHeaders.ToList();
         }
 	}
+        public static List<TransactionHeader> GetTransactionsByUserId(int userId)
+        {
+            return db.TransactionHeaders
+                     .Where(t => t.UserID == userId)
+                     .OrderByDescending(t => t.TransactionDate)
+                     .ToList();
+        }
+    }
 }

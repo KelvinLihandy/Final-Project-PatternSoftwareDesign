@@ -1,9 +1,9 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="FinalProjectPSD.View.Home" MasterPageFile="~/View/Navbar.Master" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container">
-        <h2 style="text-align: center; margin: 60px 0; color: #333; ">Our Exclusive Collection</h2>
+        <h2 style="text-align: center; margin: 80px 0; color: #333; ">Our Exclusive Collection</h2>
         
-        <div style="width: 100%; margin-top: 60px; display: flex; justify-content: center;">
+        <div style="width: 100%; margin-top: 10px; display: flex; justify-content: center;">
             <asp:GridView ID="JewelGridView" runat="server" AutoGenerateColumns="False" 
                 GridLines="None" ShowHeader="False" AllowPaging="True" 
                 PageSize="9" OnPageIndexChanging="JewelGridView_PageIndexChanging"

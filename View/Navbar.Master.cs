@@ -58,31 +58,24 @@ namespace FinalProjectPSD.View
         {
             if (Session["customer"] != null)
             {
-                // Mendapatkan UserID dari session customer  
                 var customer = Session["customer"];
-                // Asumsikan Session["customer"] menyimpan objek Customer dengan property UserID  
-                // Sesuaikan dengan struktur data customer session di aplikasi Anda  
                 int userId = Convert.ToInt32(customer.GetType().GetProperty("UserID").GetValue(customer, null));
-
-                // Redirect dengan parameter userId  
                 Response.Redirect($"~/View/Cart.aspx?userId={userId}");
             }
             else if (Request.Cookies["customer_cookie"] != null)
             {
-                // Alternatif, ambil userId dari cookie jika ada  
                 string userIdStr = Request.Cookies["customer_cookie"].Value;
                 Response.Redirect($"~/View/Cart.aspx?userId={userIdStr}");
             }
             else
             {
-                // Jika tidak ada session atau cookie, redirect ke login  
                 Response.Redirect("~/View/Login.aspx");
             }
         }
 
         protected void MyOrderPage_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("~/View/MyOrders.aspx");
         }
 
         protected void ProfilePage_Click(object sender, EventArgs e)
