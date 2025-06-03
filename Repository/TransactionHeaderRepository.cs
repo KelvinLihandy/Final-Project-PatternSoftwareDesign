@@ -35,7 +35,7 @@ namespace FinalProjectPSD.Repository
 			DatabaseJewel db = new DatabaseJewel();
 			return db.TransactionHeaders.ToList();
         }
-	}
+
         public static List<TransactionHeader> GetTransactionsByUserId(int userId)
         {
             return db.TransactionHeaders

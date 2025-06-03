@@ -103,6 +103,7 @@
     <Content Include="View\Profile.aspx" />
     <Content Include="View\Register.aspx" />
     <Content Include="View\Report.aspx" />
+    <Content Include="View\TransactionDetailPage.aspx" />
     <Content Include="View\UpdateJewel.aspx" />
     <Content Include="Web.config" />
     <Content Include="aspnet_client\system_web\2_0_50727\crystalreportviewers13\ActiveXControls\PrintControl.cab" />
@@ -1243,6 +1244,7 @@
     <Compile Include="Controller\LoginController.cs" />
     <Compile Include="Controller\ProfileController.cs" />
     <Compile Include="Controller\RegisterController.cs" />
+    <Compile Include="Controller\TransactionController.cs" />
     <Compile Include="Dataset\DataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1307,6 +1309,7 @@
     <Compile Include="Repository\MsJewelRepository.cs" />
     <Compile Include="Repository\Singleton.cs" />
     <Compile Include="Repository\MsUserRepository.cs" />
+    <Compile Include="Repository\TransactionRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="View\AddJewel.aspx.cs">
       <DependentUpon>AddJewel.aspx</DependentUpon>
@@ -1384,6 +1387,13 @@
     </Compile>
     <Compile Include="View\Report.aspx.designer.cs">
       <DependentUpon>Report.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\TransactionDetailPage.aspx.cs">
+      <DependentUpon>TransactionDetailPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\TransactionDetailPage.aspx.designer.cs">
+      <DependentUpon>TransactionDetailPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\UpdateJewel.aspx.cs">
       <DependentUpon>UpdateJewel.aspx</DependentUpon>

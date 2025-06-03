@@ -15,6 +15,14 @@ namespace FinalProjectPSD.View
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["customer"] == null && Session["admin"] == null && Request.Cookies["customer_cookie"] == null && Request.Cookies["admin_cookie"] == null)
+            {
+                Response.Redirect("~/View/Home.aspx");
+            }
+            else if ((Session["customer"] != null || Request.Cookies["customer_cookie"] != null) && (Session["admin"] == null && Request.Cookies["admin_cookie"] == null))
+            {
+                Response.Redirect("~/View/Home.aspx");
+            }
             if (!IsPostBack)
             {
                 List<TransactionHeader> completedTransactions = TransactionHandler.GetData()

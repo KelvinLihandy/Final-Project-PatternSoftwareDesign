@@ -16,6 +16,11 @@ namespace FinalProjectPSD.View
         {
             if (!IsPostBack)
             {
+                if (Session["customer"] != null)
+                {
+                    var customer = Session["customer"];
+                    int username = Convert.ToInt32(customer.GetType().GetProperty("UserID").GetValue(customer, null));
+                }
                 LoadJewels();
             }
         }
