@@ -13,6 +13,18 @@ namespace FinalProjectPSD.View
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["customer"] != null)
+            {
+                var customer = Session["customer"];
+                string userName = (string)customer.GetType().GetProperty("UserName").GetValue(customer, null);
+                UsernameLabel1.Text = "Hello " + userName;
+            }
+            if (Session["admin"] != null)
+            {
+                var customer = Session["admin"];
+                string userName = (string)customer.GetType().GetProperty("UserName").GetValue(customer, null);
+                UsernameLabel2.Text = "Hello " + userName;
+            }
             if (Session["UserID"] == null)
             {
                 string[] roles = { "admin", "customer" };

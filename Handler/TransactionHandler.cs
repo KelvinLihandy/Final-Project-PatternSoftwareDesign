@@ -87,5 +87,27 @@ namespace FinalProjectPSD.Handler
             return detailViews;
         }
         */
+
+        // Buat Transaction Detail
+        public static TransactionHeader GetTransactionHeaderById(int Id)
+        {
+            return TransactionRepository.GetTransactionHeaderById(Id);
+        }
+
+        public static List<dynamic> GetTransactionDetailDisplay(int Id)
+        {
+            var details = TransactionRepository.GetTransactionDetailsByHeaderId(Id);
+
+            var result = details.Select(td => new
+            {
+                JewelName = td.MsJewel.JewelName,
+                BrandName = td.MsJewel.MsBrand.BrandName,
+                Price = td.MsJewel.JewelPrice,
+                Quantity = td.Quantity,
+                Subtotal = td.Quantity * td.MsJewel.JewelPrice
+            }).ToList<dynamic>();
+
+            return result;
+        }
     }
 }

@@ -53,7 +53,7 @@ namespace FinalProjectPSD.View
                 switch (e.CommandName)
                 {
                     case "ViewDetails":
-                        Response.Redirect("~/View/TransactionDetail.aspx?TransactionID=" + transactionID);
+                        Response.Redirect("~/View/TransactionDetailPage.aspx?TransactionID=" + transactionID);
                         break;
 
                     case "ConfirmPackage":
